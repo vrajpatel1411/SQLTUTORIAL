@@ -46,4 +46,69 @@ select release_year from movies where title="The GodFather";
 -- Print all distinct movie studios in the Bollywood industry.
 select distinct studio from movies where industry="Bollywood";
 
+-- I want movies whose imdb rating is greater than 9
 
+select * from movies where imdb_rating > 9;
+
+-- I want movies whose imdb rating is between 6 and 8
+
+select * from movies where imdb_rating Between 6 and 8;
+
+-- I want movies from 2022,2019,2018 
+
+select * from movies where release_year=2022 or release_year=2019 or release_year=2018;
+
+-- or  
+
+Select * from movies where release_year in (2022,2019,2018);
+
+ -- Record with nothing in imdb_rating
+ 
+ select * from movies where imdb_rating is NUll;
+ 
+ -- Record which is not null in imdb_rating
+ 
+ select * from movies where imdb_rating is not null;
+ 
+ -- I want to see all bollywood movie in such a way that movie with highest rating appear first
+ 
+ Select * from movies where industry="bollywood" order by imdb_rating desc;
+
+
+-- Top 5 highest rating movies from bollywood
+
+
+ Select * from movies where industry="bollywood" order by imdb_rating desc limit 5;
+ 
+ -- I want to see 2nd highest rating movies upto 6th position movies from the bollywood
+ 
+  Select * from movies where industry="bollywood" order by imdb_rating desc limit 5 offset 1;
+  
+  
+  -- Print all movies in the order of their release year
+  
+  select * from movies order by release_year desc;
+  
+  -- All the movies release in the year 2022
+  
+  Select * from movies where release_year=2022;
+  
+  -- All the movies release after the 2020
+  
+  Select * from movies where release_year > 2020;
+  
+  -- All the movies after the year 2020 and have imdb_rating greater than 8;
+ 
+ Select * from movies where release_year > 2020 and imdb_rating > 8;
+ 
+ -- All the movies by the Marvel studios and hombale films
+ 
+ Select * from movies where studio in ("Marvel studios","Hombale Films");
+ 
+ -- All the thor movies by their release year
+ 
+ Select * from movies where title like "%thor%" order by release_year asc;
+ 
+ -- All the movies that are not from marvel studios
+ 
+ Select * from movies where studio not in ("Marvel studios");
